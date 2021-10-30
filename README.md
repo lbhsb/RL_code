@@ -86,4 +86,18 @@
 
   Noisy Networks for Exploration：http://arxiv.org/abs/1706.10295
 
-  视频教程可以参考李宏毅强化学习(https://www.bilibili.com/video/BV1UE411G78S?spm_id_from=333.999.0.0)，其他DQN系列还可参考(https://zhuanlan.zhihu.com/p/159731786)
+  视频教程可以参考李宏毅强化学习https://www.bilibili.com/video/BV1UE411G78S?spm_id_from=333.999.0.0
+
+  其他DQN系列还可参考https://zhuanlan.zhihu.com/p/159731786
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
