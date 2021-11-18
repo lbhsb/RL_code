@@ -17,7 +17,7 @@ targetQNetwork = QNetwork().to(device)
 targetQNetwork.load_state_dict(onlineQNetwork.state_dict())
 optimizer = torch.optim.Adam(onlineQNetwork.parameters(), lr=1e-3)
 memory_replay = Memory(REPLAY_MEMORY)
-writer = SummaryWriter('logs_1/d3qn')
+writer = SummaryWriter('logs/d3qn')
 
 GAMMA = 0.999
 EPS_DECAY = 200
