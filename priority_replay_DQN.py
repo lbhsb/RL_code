@@ -7,7 +7,7 @@ from tensorboardX import SummaryWriter
 # Hyper Parameters for DQN
 
 ENV_NAME = 'Enduro-ram-v0'
-writer1 = SummaryWriter('logs_1/pri-ddqn')
+writer1 = SummaryWriter('logs/pri-ddqn')
 GAMMA = 0.9  # discount factor for target Q
 INITIAL_EPSILON = 0.9  # starting value of epsilon
 FINAL_EPSILON = 0.001  # final value of epsilon
