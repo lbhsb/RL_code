@@ -23,13 +23,10 @@ begin_learn = False
 num_episodes = 3000
 episode_reward = 0
 steps_done = 0
-
-memory_replay = Memory(REPLAY_MEMORY)
-epsilon = INITIAL_EPSILON
-onlineQNetwork = QNetwork().to(device)
-targetQNetwork = QNetwork().to(device)
-targetQNetwork.load_state_dict(onlineQNetwork.state_dict())
-optimizer = torch.optim.Adam(onlineQNetwork.parameters(), lr=1e-3)
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+env = gym.make('CartPole-v0').unwrapped
+n_state = env.observation_space.shape[0]
+n_action = env.action_space.n
 
 class QNetwork(nn.Module):
     def __init__(self):
@@ -78,7 +75,13 @@ class Memory(object):
 
     def clear(self):
         self.buffer.clear()
-
+        
+memory_replay = Memory(REPLAY_MEMORY)
+epsilon = INITIAL_EPSILON
+onlineQNetwork = QNetwork().to(device)
+targetQNetwork = QNetwork().to(device)
+targetQNetwork.load_state_dict(onlineQNetwork.state_dict())
+optimizer = torch.optim.Adam(onlineQNetwork.parameters(), lr=1e-3)
 
 # onlineQNetwork.load_state_dict(torch.load('ddqn-policy.para'))
 for epoch in range(num_episodes):
