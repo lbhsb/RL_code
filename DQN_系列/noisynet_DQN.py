@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 from replay_buffer import *
 from tensorboardX import SummaryWriter
 
-env_id = "Enduro-ram-v0"
+env_id = "CartPole-v0"
 env = gym.make(env_id).unwrapped
 writer = SummaryWriter('logs/noisy_dqn')
 USE_CUDA = torch.cuda.is_available()
