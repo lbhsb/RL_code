@@ -19,7 +19,7 @@ GAMMA = 0.999  # discount factor
 TARGET_NETWORK_REPLACE_FREQ = 10  # How frequently target netowrk updates
 MEMORY_CAPACITY = 10000  # The capacity of experience replay buffer
 
-env = gym.make("Enduro-ram-v0")  # Use cartpole game as environment
+env = gym.make("CartPole-v0")  # Use cartpole game as environment
 env = env.unwrapped
 N_ACTIONS = env.action_space.n  # 2 actions
 N_STATES = env.observation_space.shape[0]  # 4 states
