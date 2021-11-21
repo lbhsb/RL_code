@@ -6,7 +6,7 @@ from collections import deque
 from tensorboardX import SummaryWriter
 # Hyper Parameters for DQN
 
-ENV_NAME = 'Enduro-ram-v0'
+ENV_NAME = 'CartPole-v0'
 writer1 = SummaryWriter('logs/pri-ddqn')
 GAMMA = 0.9  # discount factor for target Q
 INITIAL_EPSILON = 0.9  # starting value of epsilon
