@@ -9,16 +9,10 @@ from tensorboardX import SummaryWriter
 import math
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-env = gym.make('Enduro-ram-v0').unwrapped
+env = gym.make('CartPole-v0').unwrapped
 n_state = env.observation_space.shape[0]
 n_action = env.action_space.n
-onlineQNetwork = QNetwork().to(device)
-targetQNetwork = QNetwork().to(device)
-targetQNetwork.load_state_dict(onlineQNetwork.state_dict())
-optimizer = torch.optim.Adam(onlineQNetwork.parameters(), lr=1e-3)
-memory_replay = Memory(REPLAY_MEMORY)
 writer = SummaryWriter('logs/d3qn')
-
 GAMMA = 0.999
 EPS_DECAY = 200
 INITIAL_EPSILON = 0.9
@@ -87,6 +81,12 @@ class Memory(object):
 
     def clear(self):
         self.buffer.clear()
+
+onlineQNetwork = QNetwork().to(device)
+targetQNetwork = QNetwork().to(device)
+targetQNetwork.load_state_dict(onlineQNetwork.state_dict())
+optimizer = torch.optim.Adam(onlineQNetwork.parameters(), lr=1e-3)
+memory_replay = Memory(REPLAY_MEMORY)
 
 # onlineQNetwork.load_state_dict(torch.load('d3qn-policy.para'))
 for epoch in range(num_episodes):
